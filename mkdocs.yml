@@ -30,6 +30,7 @@ theme:
     - search.suggest
     - content.code.copy
     - content.tabs.link
+    - content.external
     - toc.follow
 
 markdown_extensions:
@@ -62,6 +63,9 @@ plugins:
   - search:
       lang: zh
   - glightbox
+
+extra_javascript:
+  - javascripts/newtab.js
 
 nav:
   - 首页: index.md
