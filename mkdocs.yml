@@ -1,0 +1,143 @@
+site_name: 动手学机器人
+site_description: 从算法到具身智能的开源学习笔记与项目书
+site_url: https://xuchongfeng.github.io/robotic-learning-plan/
+repo_url: https://github.com/xuchongfeng/robotic-learning-plan
+repo_name: xuchongfeng/robotic-learning-plan
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.indexes
+    - navigation.top
+    - navigation.footer
+    - search.highlight
+    - search.suggest
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+markdown_extensions:
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search:
+      lang: zh
+  - glightbox
+
+nav:
+  - 首页: index.md
+  - 前言:
+      - 如何使用本书: preface/how-to-use.md
+      - 学习路线总览: preface/roadmap.md
+      - 公开课对照: preface/courses.md
+      - 环境与工具链: preface/setup.md
+      - 笔记与项目约定: preface/conventions.md
+      - 章节模板: preface/chapter-template.md
+  - 第一篇 地基:
+      - 第 1 章 机器人全景: part1/ch01-overview.md
+      - 第 2 章 Python 工程实践: part1/ch02-python.md
+      - 第 3 章 C++ 够用即可: part1/ch03-cpp.md
+      - 第 4 章 线性代数: part1/ch04-linear-algebra.md
+      - 第 5 章 微积分与概率: part1/ch05-calc-prob.md
+      - 第 6 章 刚体运动: part1/ch06-rigid-body.md
+      - 第 7 章 正逆运动学: part1/ch07-kinematics.md
+      - 第 8 章 雅可比与静力学: part1/ch08-jacobian.md
+      - 第 9 章 动力学与控制: part1/ch09-dynamics-control.md
+  - 第二篇 算法:
+      - 第 10 章 定位: part2/ch10-localization.md
+      - 第 11 章 建图: part2/ch11-mapping.md
+      - 第 12 章 SLAM: part2/ch12-slam.md
+      - 第 13 章 路径规划 I: part2/ch13-planning-grid.md
+      - 第 14 章 路径规划 II: part2/ch14-planning-sampling.md
+      - 第 15 章 轨迹生成: part2/ch15-trajectory.md
+      - 第 16 章 路径跟踪: part2/ch16-tracking.md
+      - 第 17 章 臂与双足规划: part2/ch17-arm-biped.md
+  - 第三篇 系统:
+      - 第 18 章 ROS 2 入门: part3/ch18-ros2-intro.md
+      - 第 19 章 通信机制: part3/ch19-communication.md
+      - 第 20 章 工具链: part3/ch20-tools.md
+      - 第 21 章 建模与仿真: part3/ch21-sim.md
+      - 第 22 章 控制与 Micro-ROS: part3/ch22-control.md
+  - 第四篇 导航:
+      - 第 23 章 计算机视觉基础: part4/ch23-cv.md
+      - 第 24 章 检测与深度: part4/ch24-detection.md
+      - 第 25 章 SLAM 建图实战: part4/ch25-slam-practice.md
+      - 第 26 章 Nav2 实战: part4/ch26-nav2.md
+      - 第 27 章 Nav2 进阶: part4/ch27-nav2-advanced.md
+  - 第五篇 操作:
+      - 第 28 章 抓取与操作: part5/ch28-grasp.md
+      - 第 29 章 MoveIt 2 仿真: part5/ch29-moveit.md
+      - 第 30 章 MoveIt 2 真机: part5/ch30-moveit-hw.md
+      - 第 31 章 LeRobot: part5/ch31-lerobot.md
+  - 第六篇 智能:
+      - 第 32 章 仿真引擎矩阵: part6/ch32-simulators.md
+      - 第 33 章 强化学习: part6/ch33-rl.md
+      - 第 34 章 具身入门闭环: part6/ch34-embodied-loop.md
+      - 第 35 章 VLA: part6/ch35-vla.md
+      - 第 36 章 VLN 与 Sim2Real: part6/ch36-vln-sim2real.md
+  - 第七篇 真机:
+      - 第 37 章 低成本真机: part7/ch37-low-cost.md
+      - 第 38 章 方向 A 导航项目: part7/ch38-track-nav.md
+      - 第 39 章 方向 B 机械臂项目: part7/ch39-track-arm.md
+      - 第 40 章 方向 C 具身项目: part7/ch40-track-vla.md
+      - 第 41 章 选修方向: part7/ch41-electives.md
+  - 项目:
+      - 项目总览: projects/index.md
+      - 篇门禁: projects/gates.md
+      - 章实验: projects/labs.md
+      - P01 Hello Robot: projects/p01-hello-robot.md
+      - P02 运动学求解器: projects/p02-kinematics.md
+      - P03 PythonRobotics 十二算法: projects/p03-pythonrobotics.md
+      - P03B 算法门禁集成小车: projects/p03b-python-stack.md
+      - P04 ROS 2 最小工作空间: projects/p04-ros2-ws.md
+      - P05 TurtleBot3 导航: projects/p05-turtlebot3.md
+      - P06 自定义差速车: projects/p06-diff-drive.md
+      - P07 MoveIt 2 抓取: projects/p07-moveit-grasp.md
+      - P08 MuJoCo 抓取闭环: projects/p08-mujoco-loop.md
+      - P09 ACT / SmolVLA: projects/p09-vla.md
+      - P10 方向分流终章: projects/p10-capstone.md
+  - 附录:
+      - A 资源地图: appendix/a-resources.md
+      - B 术语表: appendix/b-glossary.md
+      - C 周计划: appendix/c-weekly.md
+      - D 硬件与预算: appendix/d-hardware.md
+      - E 进度记录: appendix/e-progress.md
