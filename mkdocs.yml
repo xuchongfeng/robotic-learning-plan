@@ -72,6 +72,7 @@ nav:
   - 前言:
       - 如何使用本书: preface/how-to-use.md
       - 学习路线总览: preface/roadmap.md
+      - 主干与加码: preface/tracks.md
       - 公开课对照: preface/courses.md
       - 环境与工具链: preface/setup.md
       - 笔记与项目约定: preface/conventions.md
@@ -138,7 +139,7 @@ nav:
       - P07 MoveIt 2 抓取: projects/p07-moveit-grasp.md
       - P08 MuJoCo 抓取闭环: projects/p08-mujoco-loop.md
       - P09 ACT / SmolVLA: projects/p09-vla.md
-      - P10 方向分流终章: projects/p10-capstone.md
+      - P10 加码加深: projects/p10-capstone.md
   - 附录:
       - A 资源地图: appendix/a-resources.md
       - B 术语表: appendix/b-glossary.md

@@ -9,7 +9,7 @@
 - [MIT Underactuated Robotics](https://underactuated.mit.edu/)
 - 宾大旧 Robotics 专项（Aerial / Motion Planning / Perception / Estimation）：平台若下架，只借鉴作业结构，实现改用 Python
 - [CS231n](http://cs231n.stanford.edu/) 卷积神经网络（第六篇按需）
-- 《视觉 SLAM 十四讲》（高翔）— 方向 A 视觉加码，不是第四篇门禁
+- 《视觉 SLAM 十四讲》（高翔）— 导航加码，不是第四篇门禁
 
 ## 路线与书单
 

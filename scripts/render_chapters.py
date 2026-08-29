@@ -13,6 +13,7 @@ C = []
 
 
 def add(**kw):
+    kw.setdefault("tracks", "主干")
     C.append(kw)
 
 
@@ -35,7 +36,7 @@ add(
     must=[
         "[Modern Robotics 第 1 章 Preview](https://hades.mech.northwestern.edu/index.php/Modern_Robotics) — 建立机构/规划/控制的词汇",
         "[Stanford CS223A Lecture 1](https://see.stanford.edu/Course/CS223A) — 课程地图，看到应用与先修即可",
-        "[公开课对照](../preface/courses.md) — 知道三条培养路线如何对应本书",
+        "[公开课对照](../preface/courses.md) — 主干如何覆盖机构/移动/感知入门",
     ],
     advanced=[
         "[commitverse/Robotics-roadmap](https://github.com/commitverse/Robotics-roadmap) — 只当资源清单，不按其 Phase 0 先学 AI",
@@ -509,6 +510,7 @@ add(
     title="第 17 章 机械臂避障与双足规划初探",
     weeks="Week 14",
     project="P03",
+    tracks="机械臂加码",
     master=[
         "关节空间规划：在 C 空间避障，不是只在工作空间画直线",
         "平面臂避障示例如何把第 13–14 章接上 FK",
@@ -798,6 +800,7 @@ add(
     title="第 27 章 Nav2 进阶：自定义规划器与恢复行为",
     weeks="Week 23–24",
     project="P06",
+    tracks="导航加码",
     master=[
         "参数与 BT 能改出可观察的行为差",
         "插件接口：全局/局部规划器如何挂进 Nav2（读懂即可）",
@@ -883,6 +886,7 @@ add(
     title="第 30 章 MoveIt 2 进阶与真机控制",
     weeks="Week 25–27",
     project="P07",
+    tracks="机械臂加码",
     master=[
         "仿真控制器与真机驱动的差异：延迟、限位、标定误差",
         "急停、关节限位、电流/力矩限制、工作空间围栏",
@@ -911,6 +915,7 @@ add(
     title="第 31 章 LeRobot 与桌面机械臂入门",
     weeks="Week 26–28",
     project="P10",
+    tracks="机械臂加码 · 具身加码",
     master=[
         "遥操作 → 数据集 → 策略训练的数据闭环",
         "一条 episode 里观测、动作、时间戳字段是什么",
@@ -1025,6 +1030,7 @@ add(
     title="第 35 章 VLA：RT 系列、OpenVLA、SmolVLA、π0",
     weeks="Week 32–36",
     project="P09",
+    tracks="具身加码",
     master=[
         "VLA = 视觉 + 语言指令 → 动作；能画数据流",
         "微调与零样本不可混为一谈",
@@ -1053,6 +1059,7 @@ add(
     title="第 36 章 VLN、世界模型与 Sim2Real",
     weeks="Week 34–36",
     project="无",
+    tracks="具身加码",
     master=[
         "VLN 是语言引导导航，与操作型 VLA 任务不同",
         "Sim2Real 典型缺口：感知、延迟、接触、域随机",
@@ -1081,6 +1088,7 @@ add(
     title="第 37 章 低成本真机：开源小车与 OttoDIY",
     weeks="Week 12 起可并行",
     project="P10",
+    tracks="选修",
     master=[
         "真机第一目标是安全与可重复，不是炫技",
         "开环动作：指令与实际运动对得上",
@@ -1110,6 +1118,7 @@ add(
     title="第 38 章 方向 A：移动机器人导航完整项目",
     weeks="Week 28–40",
     project="P10",
+    tracks="导航加码",
     master=[
         "交付：地图、三航点以上演示、失败恢复、参数表",
         "能向别人 5 分钟讲清 TF、定位、规划、控制各看哪个话题",
@@ -1137,6 +1146,7 @@ add(
     title="第 39 章 方向 B：桌面机械臂操作完整项目",
     weeks="Week 28–40",
     project="P10",
+    tracks="机械臂加码",
     master=[
         "交付：抓取演示、相机方案、安全清单",
         "仿真或真机二选一写清边界",
@@ -1164,6 +1174,7 @@ add(
     title="第 40 章 方向 C：具身 VLA 完整项目",
     weeks="Week 28–40",
     project="P10",
+    tracks="具身加码",
     master=[
         "一条能跑完的线：数据或微调 + 评测协议 + 成功率",
         "写清不是同时开三条 SOTA",
@@ -1191,6 +1202,7 @@ add(
     title="第 41 章 选修：四足 / 人形 / 云端与安全",
     weeks="按需",
     project="无",
+    tracks="选修",
     master=[
         "主线门禁未完成前，本章不得占用每周 10 小时配额",
         "若选修：锁一个仿真器、一套官方任务，写清放弃了主线哪部分时间",
@@ -1221,18 +1233,40 @@ def materials(items: list[str]) -> str:
     return "\n".join(f"- {x}" for x in items)
 
 
+SKIP_NOTE = {
+    "导航加码": "本章为 **导航加码**。终章不加深导航的，读完标题即可跳过，不挡 G1–G6。",
+    "机械臂加码": "本章为 **机械臂加码**。终章不加深机械臂的，读完标题即可跳过，不挡 G1–G6。",
+    "机械臂加码 · 具身加码": "本章为 **机械臂 / 具身加码**。两条都不加深的，读完标题即可跳过。",
+    "具身加码": "本章为 **具身加码**。终章不加深 VLA 的，读完标题即可跳过，不挡 G6（P08 仍要做）。",
+    "选修": "本章为 **选修**。主干门禁未完成前不要占用每周配额。",
+}
+
+
+def skip_banner(tracks: str) -> str:
+    if tracks == "主干":
+        return ""
+    note = SKIP_NOTE.get(tracks, f"本章为「{tracks}」，非对应加码方向可跳过。")
+    return f"""
+!!! warning \"可跳过\"
+    {note}
+"""
+
+
 def render(ch: dict) -> str:
     proj = f"`{ch['project']}`" if ch["project"] != "无" else "本章以笔记与小实验为主"
     exp = "\n".join(f"- [ ] {e}" for e in ch["experiments"])
+    tracks = ch.get("tracks", "主干")
+    banner = skip_banner(tracks)
     return f"""# {ch['title']}
 
 | 字段 | 内容 |
 |------|------|
 | 状态 | 待学习 |
 | 周次 | {ch['weeks']} |
+| 路线 | {tracks} |
 | 对应项目 | {proj} |
 | 所属篇 | `{ch['part']}` |
-
+{banner}
 ## 需要掌握
 
 {bullets(ch['master'])}

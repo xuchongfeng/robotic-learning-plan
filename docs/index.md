@@ -6,7 +6,7 @@
 
 1. **先算法后框架**：PythonRobotics 看懂再进 ROS 2，避免在 launch 文件里迷路。
 2. **一条主线**：外部仓库当教材，本仓库当唯一笔记入口。
-3. **终章可完成**：不做「整机人形」考核；第 28 周后在导航 / 机械臂 / 具身中三选一。
+3. **终章是加深不是分叉**：主干覆盖机构 / 移动 / 感知入门；加码章打标签，不走的跳过。G7 只加深一条。见 [主干与加码](preface/tracks.md)。
 4. **两层检验**：章实验证明知识点；[篇门禁](projects/gates.md) 证明能集成。不过关不进下一篇。
 5. **章节只写关键内容**：正文是「需要掌握 + 关键内容」；推导和进阶放在每章的推荐资料里，写法见 [笔记与项目约定](preface/conventions.md)。
 
@@ -28,4 +28,4 @@
 | 智能 | 24–36 | Underactuated 选读、every-embodied | G6：P08 闭环成功率 ≥ 50% |
 | 真机 | 28–40 | 作品集专项 | G7：P10 五分钟演示 |
 
-公开课怎么嵌进每周，见 [公开课对照](preface/courses.md)。章实验表见 [章实验](projects/labs.md)。章节写法见 [笔记与项目约定](preface/conventions.md)。周表见 [附录 C](appendix/c-weekly.md)。本地预览：`mkdocs serve`。
+公开课怎么嵌进每周，见 [公开课对照](preface/courses.md)。哪些章可跳过见 [主干与加码](preface/tracks.md)。章实验表见 [章实验](projects/labs.md)。章节写法见 [笔记与项目约定](preface/conventions.md)。周表见 [附录 C](appendix/c-weekly.md)。本地预览：`mkdocs serve`。

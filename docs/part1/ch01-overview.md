@@ -4,6 +4,7 @@
 |------|------|
 | 状态 | 待学习 |
 | 周次 | Week 1 |
+| 路线 | 主干 |
 | 对应项目 | `P01` |
 | 所属篇 | `part1` |
 
@@ -25,7 +26,7 @@
 
 - [Modern Robotics 第 1 章 Preview](https://hades.mech.northwestern.edu/index.php/Modern_Robotics) — 建立机构/规划/控制的词汇
 - [Stanford CS223A Lecture 1](https://see.stanford.edu/Course/CS223A) — 课程地图，看到应用与先修即可
-- [公开课对照](../preface/courses.md) — 知道三条培养路线如何对应本书
+- [公开课对照](../preface/courses.md) — 主干如何覆盖机构/移动/感知入门
 
 ### 进阶拓展
 
