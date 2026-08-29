@@ -9,7 +9,10 @@ ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / "docs"
 
 # Each chapter: part, file, title, weeks, project, master, key, must, advanced, experiments
+# Long notes / experiment checklists live in scripts/chapter_overrides/<stem>.{notes,experiments}.md
 C = []
+OVERRIDE = ROOT / "scripts" / "chapter_overrides"
+DEFAULT_NOTES = "只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。"
 
 
 def add(**kw):
@@ -538,15 +541,19 @@ add(
     title="第 18 章 ROS 2 安装、概念与工作空间",
     weeks="Week 10–11",
     project="P04",
+    status="进行中",
     master=[
         "发行版锁死 Humble 或 Jazzy，不用 ROS 1",
+        "能讲清 ROS 2 解决发现、通信、启动、生态接口，不代替算法",
+        "能画出分层：DDS/RMW → RCL → rclpy → 节点与工具 → 应用栈，并指出个人开发落在哪一层",
         "node、topic、package、workspace、overlay 各是什么",
-        "colcon build、source install/setup.bash 的顺序",
-        "turtlesim 或自写发布节点能跑",
+        "colcon build、先 source 系统再 source 工作空间的顺序",
+        "turtlesim 能讲清计算图；自写发布/订阅能跑",
     ],
     key=[
-        "ROS 2 是中间件：帮你传数据、管启动，不代替算法。算法没懂就写节点会在 launch 里迷路。",
-        "可与第二篇后半重叠安装，但 P03B 仍须完成。",
+        "ROS 2 是中间件：帮多个进程发现彼此、按标准消息传数据、被 launch 一起拉起。EKF、A*、PID 仍是算法，不因进了节点就消失。",
+        "分层是为了换传输不换节点、Python 与 C++ 共用一张计算图。个人主写节点和包，调用 rclpy，用 CLI / RViz；本周不碰 DDS，不改 Nav2。",
+        "可与第二篇后半重叠安装，但 P03B 仍须完成后再把算法塞进回调。四种通信与 launch 见第 19 章，本周只做到 pub/sub。",
     ],
     must=[
         "[fishros/d2l-ros2 第 1–2 章](https://github.com/fishros/d2l-ros2) 或 [在线教程](https://fishros.com/d2lros2/)",
@@ -569,17 +576,22 @@ add(
     title="第 19 章 通信：话题、服务、参数、Action",
     weeks="Week 11–13",
     project="P04",
+    status="进行中",
     master=[
-        "topic：连续流；service：短请求应答；action：长任务+反馈；param：配置",
-        "会选哪种通信，而不是四种都滥用",
-        "自定义 msg 与 launch 拉起多节点",
+        "能讲清话题是多对多数据流，服务是客户端按服务名做一次请求—应答（服务端之间不会自动互调）",
+        "会为连续传感、偶发命令、长任务、配置分别选型：topic / service / action / param",
+        "能把「摄像头 → 识别 → 播报」拆成多个节点，而不是一个进程里读图+模型+发音",
+        "自定义 srv/msg 与 launch 拉起多节点；P04 同一包四种原语各出现一次",
     ],
     key=[
-        "导航目标常用 action，地图常用 topic，开关常用 service。P04 要在同一包里四种都出现一次。",
+        "节点只靠具名接口通信。话题适合图像和检测结果这种流；服务适合「说一句话」这种问完要等说完；Action 适合可取消的长任务；参数是挂在节点上的配置，不是传感器通道。",
+        "服务不会和服务通信：一个节点提供 `/speak`，另一个节点当客户端去调这个名字。要把识别和播报串起来，需要中间的策略节点把话题流变成服务调用。",
+        "摄像头场景：camera 只发图，detector 只发检测，announcer 决定何时说，tts 只负责发音。本周用字符串假数据跑通形状即可。P04 四种原语要在同一 launch 里能指出来；TF 遥控车留给第 20 章。",
     ],
     must=[
-        "d2l-ros2 第 3–4 章",
-        "[ROS 2 Topics / Services / Actions 教程](https://docs.ros.org/en/humble/Tutorials.html)",
+        "[fishros/d2l-ros2 第 3–4 章](https://github.com/fishros/d2l-ros2) — 话题与服务",
+        "[Understanding topics](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Topics/Understanding-ROS2-Topics.html) / [services](https://docs.ros.org/en/humble/Tutorials/Beginner-CLI-Tools/Understanding-ROS2-Services/Understanding-ROS2-Services.html) / [actions](https://docs.ros.org/en/humble/Tutorials/Intermediate/Understanding-ROS2-Actions/Understanding-ROS2-Actions.html) — CLI 先摸清形态",
+        "[Writing a simple service and client (Python)](https://docs.ros.org/en/humble/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Service-And-Client.html) — 过实验 C",
     ],
     advanced=[
         "QoS（可靠/尽力、深度）— 激光与无线丢包时必看官方 QoS",
@@ -1252,16 +1264,27 @@ def skip_banner(tracks: str) -> str:
 """
 
 
+def load_override(ch: dict, kind: str) -> str | None:
+    path = OVERRIDE / f"{Path(ch['file']).stem}.{kind}.md"
+    if path.exists():
+        return path.read_text(encoding="utf-8").strip()
+    return None
+
+
 def render(ch: dict) -> str:
     proj = f"`{ch['project']}`" if ch["project"] != "无" else "本章以笔记与小实验为主"
-    exp = "\n".join(f"- [ ] {e}" for e in ch["experiments"])
+    exp = load_override(ch, "experiments")
+    if not exp:
+        exp = "\n".join(f"- [ ] {e}" for e in ch["experiments"])
+    notes = ch.get("notes") or load_override(ch, "notes") or DEFAULT_NOTES
     tracks = ch.get("tracks", "主干")
+    status = ch.get("status", "待学习")
     banner = skip_banner(tracks)
-    return f"""# {ch['title']}
+    head = f"""# {ch['title']}
 
 | 字段 | 内容 |
 |------|------|
-| 状态 | 待学习 |
+| 状态 | {status} |
 | 周次 | {ch['weeks']} |
 | 路线 | {tracks} |
 | 对应项目 | {proj} |
@@ -1287,17 +1310,14 @@ def render(ch: dict) -> str:
 
 ## 实验清单
 
-{exp}
-
-## 笔记
-
-只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
-
-## 复盘
-
-- 卡住的地方：
-- 下一章开始前必须补上的漏洞：
 """
+    return (
+        head
+        + exp
+        + "\n\n## 笔记\n\n"
+        + notes
+        + "\n\n## 复盘\n\n- 卡住的地方：\n- 下一章开始前必须补上的漏洞：\n"
+    )
 
 
 def main() -> None:
