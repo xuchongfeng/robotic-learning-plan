@@ -33,14 +33,14 @@
 - [SciPy 空间变换](https://docs.scipy.org/doc/scipy/reference/spatial.transform.html) — 四元数/旋转后用，可与第 6 章对照
 - 类型标注与 ruff/mypy — 工程加码，不挡章实验
 
+## 笔记
+
+只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
 ## 实验清单
 
 - [ ] 实现 2D 点绕原点旋转 θ，Matplotlib 画出轨迹
 - [ ] 为该函数补 3 个 pytest 用例
-
-## 笔记
-
-只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
 
 ## 复盘
 

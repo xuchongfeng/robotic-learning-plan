@@ -32,13 +32,13 @@
 - MR 第 9 章 Trajectory Generation
 - Nav2 控制器用的路径插值 — 第 26 章对照
 
-## 实验清单
-
-- [ ] 必跑 quintic_polynomials、reeds_shepp、frenet；确认位置速度加速度连续
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 quintic_polynomials、reeds_shepp、frenet；确认位置速度加速度连续
 
 ## 复盘
 

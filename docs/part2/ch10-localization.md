@@ -34,13 +34,13 @@ P03B 必须用「估计位姿」而不是真值去跟踪。本章先把三种算
 - UKF / 无迹变换 — EKF 不够时再上
 - [ETH AMR](https://www.edx.org/learn/autonomous-robotics/eth-zurich-autonomous-mobile-robots) 定位模块 — 第二教材
 
-## 实验清单
-
-- [ ] 必跑 extended_kalman_filter、particle_filter、histogram_filter，各留动画与五句原理
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 extended_kalman_filter、particle_filter、histogram_filter，各留动画与五句原理
 
 ## 复盘
 

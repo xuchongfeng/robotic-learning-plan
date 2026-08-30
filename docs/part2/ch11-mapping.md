@@ -32,13 +32,13 @@
 - 语义地图 — 检测章之后选修
 - Cartographer 子图与回环 — 第 25 章工程实现
 
-## 实验清单
-
-- [ ] 必跑 gaussian_grid_map、raycasting_grid_map、lidar_to_grid_map
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 gaussian_grid_map、raycasting_grid_map、lidar_to_grid_map
 
 ## 复盘
 

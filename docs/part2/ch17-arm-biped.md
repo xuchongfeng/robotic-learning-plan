@@ -33,13 +33,13 @@
 - MoveIt 规划组与碰撞 — 第 29 章
 - Open_Duck / 宇树运动控制论文 — 第 41 章
 
-## 实验清单
-
-- [ ] 必跑 N joint arm、arm obstacle avoidance、bipedal planner 各一，笔记里对比与小车规划的差别
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 N joint arm、arm obstacle avoidance、bipedal planner 各一，笔记里对比与小车规划的差别
 
 ## 复盘
 

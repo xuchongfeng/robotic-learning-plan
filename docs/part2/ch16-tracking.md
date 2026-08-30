@@ -32,13 +32,13 @@
 - Nav2 DWB / MPPI 局部规划 — 第 26 章
 - 差速与阿克曼模型差异 — 自己推一层运动学即可
 
-## 实验清单
-
-- [ ] 必跑 Stanley、LQR speed/steering、MPC；G2 用其中之一接估计位姿
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 Stanley、LQR speed/steering、MPC；G2 用其中之一接估计位姿
 
 ## 复盘
 

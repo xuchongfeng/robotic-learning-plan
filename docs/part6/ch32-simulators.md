@@ -31,13 +31,13 @@
 - Genesis / Habitat / CARLA — 按方向打开，勿并行
 - 域随机与 Sim2Real 清单 — 第 36 章
 
-## 实验清单
-
-- [ ] 跑通 MuJoCo Hello（或等价官方 demo），命令写入 README
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 跑通 MuJoCo Hello（或等价官方 demo），命令写入 README
 
 ## 复盘
 

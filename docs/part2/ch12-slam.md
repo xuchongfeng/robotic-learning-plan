@@ -33,13 +33,13 @@ G2 不要求完整 SLAM；但要能讲清为何开环里程计会漂。
 - 视觉 SLAM 十四讲前端+后端 — 方向 A 加码，不挡 G2/G4
 - Cartographer / slam_toolbox 工程 — 第 25 章
 
-## 实验清单
-
-- [ ] 必跑 ICP Matching、EKF SLAM、FastSLAM 1.0
-
 ## 笔记
 
 只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
+## 实验清单
+
+- [ ] 必跑 ICP Matching、EKF SLAM、FastSLAM 1.0
 
 ## 复盘
 

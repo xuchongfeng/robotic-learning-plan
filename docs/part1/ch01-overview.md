@@ -34,14 +34,14 @@
 - [kiloreux/awesome-robotics](https://github.com/kiloreux/awesome-robotics) — 课程/会议字典，按需查
 - [Stanford PoRA I 课程主页](https://stanfordasl.github.io/PoRA-I/aa274a_aut2526/) — 看一眼学期实验长什么样
 
+## 笔记
+
+只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
+
 ## 实验清单
 
 - [ ] 手绘差速车从激光到轮速的框图，标出典型频率
 - [ ] 列出本机：OS、Python、是否有 NVIDIA GPU
-
-## 笔记
-
-只记自己的推导、踩坑、数字和截图。不要把教材抄进这一节。
 
 ## 复盘
 

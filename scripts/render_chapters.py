@@ -131,7 +131,7 @@ add(
     ],
     key=[
         "机器人里的「算一下位姿」几乎都是：列向量乘矩阵。先把二维齐次变换画熟，三维只是 3x3 变成 4x4。",
-        "约定写死：p_a = T_a_b @ p_b，复合 T_a_c = T_a_b @ T_b_c（从右往左读）。先转后移和先移后转一般不相等。",
+        "数学约定（与 Modern Robotics 相同）：\(p_a=T_{ab}p_b\)，复合 \(T_{ac}=T_{ab}T_{bc}\)。\(T_{ab}\) 把 **b 系坐标变成 a 系坐标**，从右往左读。`@` 只是 NumPy 的写法，教材里不要当正式符号。有的笔记把 `T_ab` 理解成「从 a 到 b」，和本书相反，以本段语义为准。先转后移和先移后转一般不相等。",
         "刚体求逆用手写 R.T，不要盲信通用 inv。题目先纸笔，图在 projects/ch04_linear_algebra/ch04_linear_algebra.ipynb。",
     ],
     must=[
@@ -1312,14 +1312,14 @@ def render(ch: dict) -> str:
 
 {materials(ch['advanced'])}
 
-## 实验清单
+## 笔记
 
 """
     return (
         head
-        + exp
-        + "\n\n## 笔记\n\n"
         + notes
+        + "\n\n## 实验清单\n\n"
+        + exp
         + "\n\n## 复盘\n\n- 卡住的地方：\n- 下一章开始前必须补上的漏洞：\n"
     )
 
