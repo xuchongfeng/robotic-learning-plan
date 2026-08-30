@@ -3,3 +3,7 @@
 每个里程碑一个子目录。先读 `docs/projects/` 里的验收标准，再往对应文件夹里填代码。
 
 当前为占位目录，完成 P01 时创建 `p01_hello_robot/` 并在此更新链接。
+
+章实验：
+
+- [第 4 章线性代数 notebook](ch04_linear_algebra/)
